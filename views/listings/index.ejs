@@ -1,0 +1,40 @@
+<!-- //video- index route -->
+<!-- video- project part1 phase  -->
+<!-- creating boilerplate -->
+
+<% layout('layouts/boilerplate') %>
+
+<h3>All Listings</h3>
+
+<!--
+<form action="/listings/new" method="GET">
+  <button>Create New</button>
+</form>
+-->
+
+<div class="row row-cols-2 row-cols-md-3 row-cols-lg-4">
+
+  <% for(let listing of allListings) { %>
+
+    <a href="/listings/<%= listing._id %>" class="listing-link">
+
+      <div class="card col listing-card">
+
+        <img src="<%= listing.image.url %>" class="card-img-top" alt="Listing_Image">
+
+        <div class="card-img-overlay"></div>
+
+        <div class="card-body">
+          <p class="card-text">
+            <b><%= listing.title %></b><br>
+            &#8377 <%= listing.price.toLocaleString('en-IN') %> /Night <br>
+          </p>
+        </div>
+
+      </div>
+
+    </a>
+
+  <% } %>
+
+</div>
